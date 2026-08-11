@@ -9,7 +9,7 @@ function add(description) {
     const date = new Date() .toISOString();
 
     const newTask = {
-    id: nextId,
+    id: newId,
     description: description,
     status: 'todo',
     createdAt: date,
@@ -21,5 +21,7 @@ function add(description) {
 
     console.log(`Tarefa adicionada com sucesso! (ID: ${newTask.id})`);
 
-    module.exports = { add };
+    
 }
+
+module.exports = { add };
