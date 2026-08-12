@@ -20,8 +20,19 @@ function add(description) {
     writeTasks(tasks);
 
     console.log(`Tarefa adicionada com sucesso! (ID: ${newTask.id})`);
-
-    
 }
 
-module.exports = { add };
+function list() {
+  const tasks = readTasks();
+
+  if (tasks.length === 0) {
+    console.log('Nenhuma tarefa encontrada.');
+    return;
+  }
+
+  task.forEach(task => {
+    console.log(`[${task.id}] ${task.description} - ${task.status}`);
+  })
+}
+
+module.exports = { add, list };
