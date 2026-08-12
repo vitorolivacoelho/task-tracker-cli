@@ -7,7 +7,7 @@ const commandArgs = args.slice(1);
 if (command === 'add') {
   add(commandArgs[0]);
 } else if (command === 'list') {
-  list();
+  list(commandArgs[0]);
 } else if (command === 'update') {
   update(commandArgs[0], commandArgs[1]);
 } else if (command === 'delete') {
