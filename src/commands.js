@@ -22,17 +22,19 @@ function add(description) {
     console.log(`Tarefa adicionada com sucesso! (ID: ${newTask.id})`);
 }
 
-function list() {
+function list(status) {
   const tasks = readTasks();
 
-  if (tasks.length === 0) {
+  const filteredTasks = status ? tasks.filter((task) => task.status === status) : tasks;
+
+  if (filteredTasks.length === 0) {
     console.log('Nenhuma tarefa encontrada.');
     return;
   }
 
-  tasks.forEach(task => {
+  filteredTasks.forEach((task) => {
     console.log(`[${task.id}] ${task.description} - ${task.status}`);
-  })
+  });
 }
 
 function update(id, newDescription) {
