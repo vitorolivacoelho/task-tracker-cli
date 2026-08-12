@@ -35,4 +35,22 @@ function list() {
   })
 }
 
-module.exports = { add, list };
+function update(id, newDescription) {
+  const tasks = readTasks();
+
+  const task = tasks.find((task) => task.id === Number(id));
+
+  if (!task) {
+    console.log(`Erro: tarefa com ID ${id} não encontrada.`);
+    return;
+  }
+
+  task.description = newDescription;
+  task.updatedAt = new Date().toISOString();
+
+  writeTasks(tasks);
+
+  console.log(`Tarefa ${task.id} atualizada com sucesso!`);
+}
+  
+module.exports = { add, list, update };
