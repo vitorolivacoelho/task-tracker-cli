@@ -30,7 +30,7 @@ function list() {
     return;
   }
 
-  task.forEach(task => {
+  tasks.forEach(task => {
     console.log(`[${task.id}] ${task.description} - ${task.status}`);
   })
 }
