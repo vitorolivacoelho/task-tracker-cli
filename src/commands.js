@@ -86,4 +86,4 @@ function markInProgress(id) {
   console.log(`Tarefa ${task.id} marcada como "em andamento"!`);
 }
 
-module.exports = { add, list, update, deleteTask };
+module.exports = { add, list, update, deleteTask, markInProgress };
