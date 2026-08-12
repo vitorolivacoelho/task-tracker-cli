@@ -52,5 +52,21 @@ function update(id, newDescription) {
 
   console.log(`Tarefa ${task.id} atualizada com sucesso!`);
 }
-  
-module.exports = { add, list, update };
+
+function deleteTask(id) {
+  const tasks = readTasks();
+
+  const taskIndex = tasks.findIndex((task) => task.id === Number(id));
+
+  if (taskIndex === -1) {
+    console.log(`Erro: tarefa com ID ${id} não encontrada.`);
+    return;
+  }
+
+  tasks.splice(taskIndex, 1);
+  writeTasks(tasks);
+
+  console.log(`Tarefa ${id} excluída com sucesso!`);
+}
+
+module.exports = { add, list, update, deleteTask };
