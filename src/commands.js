@@ -86,4 +86,22 @@ function markInProgress(id) {
   console.log(`Tarefa ${task.id} marcada como "em andamento"!`);
 }
 
-module.exports = { add, list, update, deleteTask, markInProgress };
+function markCompleted(id) {
+  const tasks = readTasks();
+
+  const task = tasks.find((task) => task.id === Number(id));
+
+  if (!task) {
+      console.log(`Erro: tarefa com ID ${id} não encontrada.`);
+      return;
+  }
+
+  task.status = 'completed';
+  task.updatedAt = new Date().toISOString();
+
+  writeTasks(tasks);
+
+  console.log(`Tarefa ${task.id} marcada como "concluída"!`);
+}
+
+module.exports = { add, list, update, deleteTask, markInProgress, markCompleted };
